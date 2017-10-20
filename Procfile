@@ -1,1 +1,1 @@
-web: babel-node tools/distServer.js
+web: node --debug=5858 tools/distServer.js
