@@ -1,6 +1,8 @@
 import React, {PropTypes} from 'react';
 import CourseListRow from './CourseListRow';
 
+// Stateless Component :)
+
 const CourseList = ({courses}) => {
     return (
         <table className="table">
