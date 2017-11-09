@@ -50,21 +50,38 @@ export class ManageCoursePage extends React.Component {
     saveCourse(event) {
         event.preventDefault();
 
+         // Check course.id state to see if course was addeded or changed,
+        // then pass editType to redirect(editType) function
+        let editType = "";
+        if (this.state.course.id == ""){
+            editType = "A";
+        } else {
+            editType = "U";
+        }
+
         if (!this.courseFormIsValid()) {
             return;
         }
         this.setState({saving: true});
         this.props.actions.saveCourse(this.state.course)
-            .then(() => this.redirect()) // (Delayed) - Redirect will only be called when saveCourse promise is resolved
+            .then(() => this.redirect(editType)) // (Delayed) - Redirect will only be called when saveCourse promise is resolved
             .catch(error => {
                 toastr.error(error);
                 this.setState({saving: false});
             });
     }
 
-    redirect(){
+    redirect(editType){
+
         this.setState({saving: false});
-        toastr.success('Course saved');
+        
+        if (editType == "A") {
+            toastr.success('Course added');
+        }
+        else if (editType == "U") {
+            toastr.success('Course saved');
+        }
+
         this.context.router.push('/courses');
     }
 
