@@ -7,7 +7,7 @@ class HomePage extends React.Component {
             <div className="jumbotron">
             <h1>Plurasight Administration</h1>
             <p>React, Redux Router in E6 for ultra-repsonsive web apps.</p>
-            <Link to="about" className="btn btn-primary btn-lg">Learn More</Link>
+            <Link to="about" className="btn btn-primary btn-md">Learn More</Link>
         </div>
         );
     }

@@ -28,8 +28,6 @@ class CoursesPage extends React.Component {
 
     redirect(){
         toastr.success('Course Deleted');
-        //this.context.router.push('/courses');
-       // browserHistory.push('/courses');
     }
 
     redirectToAddCoursePage() {
